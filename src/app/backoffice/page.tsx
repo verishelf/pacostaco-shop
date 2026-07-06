@@ -18,14 +18,14 @@ export default function BackofficeOverviewPage() {
         description={`${mockLocation.name} — Performance snapshot`}
       />
 
-      <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-6 grid gap-4 sm:mb-8 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {mockStats.map((stat) => (
           <StatCard key={stat.label} stat={stat} />
         ))}
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
           <h3 className="mb-4 font-bold text-taco-dark">Location Health</h3>
           <dl className="space-y-3">
             <div className="flex justify-between">
@@ -51,7 +51,7 @@ export default function BackofficeOverviewPage() {
           </dl>
         </div>
 
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 sm:p-6">
           <h3 className="mb-2 font-bold text-taco-dark">Royalty Reminder</h3>
           {dueRoyalty ? (
             <>
@@ -74,9 +74,9 @@ export default function BackofficeOverviewPage() {
         </div>
       </div>
 
-      <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="mt-6 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
         <h3 className="mb-4 font-bold text-taco-dark">Quick Actions</h3>
-        <div className="flex flex-wrap gap-3">
+        <div className="grid gap-3 sm:flex sm:flex-wrap">
           {[
             { href: "/backoffice/menu", label: "Update Menu Pricing" },
             { href: "/backoffice/location", label: "Edit Store Hours" },
@@ -86,7 +86,7 @@ export default function BackofficeOverviewPage() {
             <Link
               key={action.href}
               href={action.href}
-              className="rounded-xl border border-gray-200 px-4 py-2 text-sm font-bold text-taco-dark transition hover:border-taco-teal hover:text-taco-teal"
+              className="rounded-xl border border-gray-200 px-4 py-2.5 text-center text-sm font-bold text-taco-dark transition hover:border-taco-teal hover:text-taco-teal sm:py-2"
             >
               {action.label}
             </Link>

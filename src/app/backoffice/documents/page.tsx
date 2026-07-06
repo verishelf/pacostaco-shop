@@ -20,7 +20,7 @@ export default function BackofficeDocumentsPage() {
         {mockDocuments.map((doc) => (
           <div
             key={doc.id}
-            className="flex items-center justify-between rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:border-taco-teal"
+            className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition hover:border-taco-teal sm:flex-row sm:items-center sm:justify-between sm:p-5"
           >
             <div>
               <h3 className="font-bold text-taco-dark">{doc.title}</h3>
@@ -35,7 +35,7 @@ export default function BackofficeDocumentsPage() {
             </div>
             <button
               type="button"
-              className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-bold text-taco-teal hover:bg-teal-50"
+              className="w-full rounded-lg border border-gray-200 px-4 py-2 text-sm font-bold text-taco-teal hover:bg-teal-50 sm:w-auto"
             >
               Download
             </button>

@@ -9,7 +9,7 @@ export default function BackofficeLocationPage() {
         description="Manage store profile, hours, and contact information"
       />
 
-      <form className="space-y-6 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+      <form className="space-y-6 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:p-8">
         <div className="grid gap-6 md:grid-cols-2">
           <div>
             <label className="mb-1 block text-sm font-bold text-taco-dark">
@@ -82,8 +82,8 @@ export default function BackofficeLocationPage() {
               { day: "Fri – Sat", hours: "10:00 AM – 11:00 PM" },
               { day: "Sunday", hours: "9:00 AM – 8:00 PM" },
             ].map((row) => (
-              <div key={row.day} className="flex items-center gap-3">
-                <span className="w-24 text-sm font-medium text-gray-600">{row.day}</span>
+              <div key={row.day} className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                <span className="text-sm font-medium text-gray-600 sm:w-24">{row.day}</span>
                 <input
                   type="text"
                   defaultValue={row.hours}
@@ -94,7 +94,7 @@ export default function BackofficeLocationPage() {
           </div>
         </div>
 
-        <div className="flex gap-3 border-t border-gray-100 pt-6">
+        <div className="flex flex-col gap-3 border-t border-gray-100 pt-6 sm:flex-row">
           <button
             type="button"
             className="rounded-xl bg-taco-teal px-6 py-2.5 text-sm font-bold text-white hover:bg-teal-800"

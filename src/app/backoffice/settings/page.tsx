@@ -9,7 +9,7 @@ export default function BackofficeSettingsPage() {
         description="Manage your franchise owner profile and notification preferences"
       />
 
-      <form className="space-y-6 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+      <form className="space-y-6 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:p-8">
         <div className="grid gap-6 md:grid-cols-2">
           <div>
             <label className="mb-1 block text-sm font-bold text-taco-dark">
@@ -68,7 +68,7 @@ export default function BackofficeSettingsPage() {
 
         <button
           type="button"
-          className="rounded-xl bg-taco-teal px-6 py-2.5 text-sm font-bold text-white hover:bg-teal-800"
+          className="w-full rounded-xl bg-taco-teal px-6 py-2.5 text-sm font-bold text-white hover:bg-teal-800 sm:w-auto"
         >
           Save Settings
         </button>
