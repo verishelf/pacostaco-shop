@@ -1,6 +1,7 @@
 export const navItems = [
   { href: "/backoffice", label: "Overview", icon: "📊" },
   { href: "/backoffice/ordering", label: "Ordering", icon: "📦" },
+  { href: "/backoffice/catering", label: "Catering Leads", icon: "🎉" },
   { href: "/backoffice/location", label: "My Location", icon: "📍" },
   { href: "/backoffice/menu", label: "Menu", icon: "🌮" },
   { href: "/backoffice/reports", label: "Royalties & Reports", icon: "📈" },

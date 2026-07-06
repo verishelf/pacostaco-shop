@@ -31,6 +31,7 @@ export interface Database {
           type?: "corporate" | "franchise";
           created_at?: string;
         };
+        Relationships: [];
       };
       locations: {
         Row: {
@@ -75,6 +76,7 @@ export interface Database {
           is_active?: boolean;
           created_at?: string;
         };
+        Relationships: [];
       };
       menu_categories: {
         Row: {
@@ -95,6 +97,7 @@ export interface Database {
           sort_order?: number;
           created_at?: string;
         };
+        Relationships: [];
       };
       menu_items: {
         Row: {
@@ -127,6 +130,7 @@ export interface Database {
           is_house_special?: boolean;
           created_at?: string;
         };
+        Relationships: [];
       };
       location_menu_items: {
         Row: {
@@ -153,6 +157,7 @@ export interface Database {
           is_available?: boolean;
           created_at?: string;
         };
+        Relationships: [];
       };
       user_roles: {
         Row: {
@@ -179,7 +184,102 @@ export interface Database {
           role?: "corporate_admin" | "franchise_owner" | "store_manager";
           created_at?: string;
         };
+        Relationships: [];
+      };
+      catering_inquiries: {
+        Row: {
+          id: string;
+          location_id: string | null;
+          contact_name: string;
+          contact_email: string;
+          contact_phone: string;
+          event_date: string | null;
+          guest_count: number | null;
+          event_type: string | null;
+          message: string | null;
+          status: "new" | "contacted" | "qualified" | "closed" | "spam";
+          source: "website" | "backoffice" | "referral";
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          location_id?: string | null;
+          contact_name: string;
+          contact_email: string;
+          contact_phone: string;
+          event_date?: string | null;
+          guest_count?: number | null;
+          event_type?: string | null;
+          message?: string | null;
+          status?: "new" | "contacted" | "qualified" | "closed" | "spam";
+          source?: "website" | "backoffice" | "referral";
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          location_id?: string | null;
+          contact_name?: string;
+          contact_email?: string;
+          contact_phone?: string;
+          event_date?: string | null;
+          guest_count?: number | null;
+          event_type?: string | null;
+          message?: string | null;
+          status?: "new" | "contacted" | "qualified" | "closed" | "spam";
+          source?: "website" | "backoffice" | "referral";
+          created_at?: string;
+        };
+        Relationships: [];
+      };
+      franchise_inquiries: {
+        Row: {
+          id: string;
+          contact_name: string;
+          contact_email: string;
+          contact_phone: string;
+          city: string;
+          state: string;
+          investment_range: string | null;
+          restaurant_experience: string | null;
+          message: string | null;
+          status: "new" | "contacted" | "qualified" | "closed" | "spam";
+          source: "website" | "backoffice" | "referral";
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          contact_name: string;
+          contact_email: string;
+          contact_phone: string;
+          city: string;
+          state: string;
+          investment_range?: string | null;
+          restaurant_experience?: string | null;
+          message?: string | null;
+          status?: "new" | "contacted" | "qualified" | "closed" | "spam";
+          source?: "website" | "backoffice" | "referral";
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          contact_name?: string;
+          contact_email?: string;
+          contact_phone?: string;
+          city?: string;
+          state?: string;
+          investment_range?: string | null;
+          restaurant_experience?: string | null;
+          message?: string | null;
+          status?: "new" | "contacted" | "qualified" | "closed" | "spam";
+          source?: "website" | "backoffice" | "referral";
+          created_at?: string;
+        };
+        Relationships: [];
       };
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 }

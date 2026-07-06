@@ -1,15 +1,21 @@
 import Link from "next/link";
 import { PageHeader } from "@/backoffice/components/PageHeader";
 import { StatCard } from "@/backoffice/components/StatCard";
+import { TodayChecklist } from "@/backoffice/components/TodayChecklist";
 import {
   formatCurrency,
   mockLocation,
   mockRoyalties,
   mockStats,
 } from "@/backoffice/data/mock-data";
+import { getLowStockItems } from "@/backoffice/data/order-catalog";
+import { getCateringInquiries } from "@/lib/data/inquiries";
 
-export default function BackofficeOverviewPage() {
+export default async function BackofficeOverviewPage() {
   const dueRoyalty = mockRoyalties.find((r) => r.status === "due");
+  const lowStockCount = getLowStockItems().length;
+  const cateringInquiries = await getCateringInquiries();
+  const newCateringLeads = cateringInquiries.filter((item) => item.status === "new").length;
 
   return (
     <div className="mx-auto max-w-6xl">
@@ -18,6 +24,33 @@ export default function BackofficeOverviewPage() {
         description={`${mockLocation.name} — Performance snapshot`}
       />
 
+      {(lowStockCount > 0 || newCateringLeads > 0 || dueRoyalty) && (
+        <div className="mb-6 space-y-3">
+          {dueRoyalty && (
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+              <strong>Royalty due:</strong> {dueRoyalty.period} —{" "}
+              {formatCurrency(dueRoyalty.royaltyDue + dueRoyalty.marketingDue)}
+            </div>
+          )}
+          {lowStockCount > 0 && (
+            <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+              <strong>{lowStockCount} items</strong> below reorder point.{" "}
+              <Link href="/backoffice/ordering" className="font-bold underline">
+                Place order →
+              </Link>
+            </div>
+          )}
+          {newCateringLeads > 0 && (
+            <div className="rounded-2xl border border-teal-200 bg-teal-50 p-4 text-sm text-teal-800">
+              <strong>{newCateringLeads} new catering lead{newCateringLeads === 1 ? "" : "s"}.</strong>{" "}
+              <Link href="/backoffice/catering" className="font-bold underline">
+                View leads →
+              </Link>
+            </div>
+          )}
+        </div>
+      )}
+
       <div className="mb-6 grid gap-4 sm:mb-8 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {mockStats.map((stat) => (
           <StatCard key={stat.label} stat={stat} />
@@ -25,6 +58,8 @@ export default function BackofficeOverviewPage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
+        <TodayChecklist />
+
         <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
           <h3 className="mb-4 font-bold text-taco-dark">Location Health</h3>
           <dl className="space-y-3">
@@ -50,7 +85,9 @@ export default function BackofficeOverviewPage() {
             </div>
           </dl>
         </div>
+      </div>
 
+      <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 sm:p-6">
           <h3 className="mb-2 font-bold text-taco-dark">Royalty Reminder</h3>
           {dueRoyalty ? (
@@ -72,26 +109,25 @@ export default function BackofficeOverviewPage() {
             <p className="text-sm text-gray-600">All royalties current.</p>
           )}
         </div>
-      </div>
 
-      <div className="mt-6 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
-        <h3 className="mb-4 font-bold text-taco-dark">Quick Actions</h3>
-        <div className="grid gap-3 sm:flex sm:flex-wrap">
-          {[
-            { href: "/backoffice/ordering", label: "Place Distributor Order" },
-            { href: "/backoffice/menu", label: "Update Menu Pricing" },
-            { href: "/backoffice/location", label: "Edit Store Hours" },
-            { href: "/backoffice/documents", label: "Download Ops Manual" },
-            { href: "/backoffice/settings", label: "Account Settings" },
-          ].map((action) => (
-            <Link
-              key={action.href}
-              href={action.href}
-              className="rounded-xl border border-gray-200 px-4 py-2.5 text-center text-sm font-bold text-taco-dark transition hover:border-taco-teal hover:text-taco-teal sm:py-2"
-            >
-              {action.label}
-            </Link>
-          ))}
+        <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
+          <h3 className="mb-4 font-bold text-taco-dark">Quick Actions</h3>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {[
+              { href: "/backoffice/ordering", label: "Place Distributor Order" },
+              { href: "/backoffice/catering", label: "Catering Leads" },
+              { href: "/backoffice/menu", label: "Update Menu Pricing" },
+              { href: "/backoffice/documents", label: "Operations Manual" },
+            ].map((action) => (
+              <Link
+                key={action.href}
+                href={action.href}
+                className="rounded-xl border border-gray-200 px-4 py-2.5 text-center text-sm font-bold text-taco-dark transition hover:border-taco-teal hover:text-taco-teal"
+              >
+                {action.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>

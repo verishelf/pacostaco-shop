@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { mockLocation, mockOwner } from "@/backoffice/data/mock-data";
 import { navItems } from "@/backoffice/data/nav-items";
+import { SignOutButton } from "@/backoffice/components/SignOutButton";
 
 interface BackofficeHeaderProps {
   title: string;
@@ -144,13 +145,7 @@ export function BackofficeHeader({ title, subtitle }: BackofficeHeaderProps) {
               >
                 ← Public Website
               </Link>
-              <Link
-                href="/auth/login"
-                onClick={() => setMenuOpen(false)}
-                className="mt-2 block text-sm text-gray-400 transition hover:text-white"
-              >
-                Sign Out
-              </Link>
+              <SignOutButton className="mt-2 block text-left text-sm text-gray-400 transition hover:text-white" />
             </div>
           </aside>
         </div>

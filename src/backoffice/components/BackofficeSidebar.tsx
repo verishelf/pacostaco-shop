@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navItems } from "@/backoffice/data/nav-items";
+import { SignOutButton } from "@/backoffice/components/SignOutButton";
 
 export function BackofficeSidebar() {
   const pathname = usePathname();
@@ -48,12 +49,7 @@ export function BackofficeSidebar() {
         >
           ← Public Website
         </Link>
-        <Link
-          href="/auth/login"
-          className="mt-2 block text-sm text-gray-400 transition hover:text-white"
-        >
-          Sign Out
-        </Link>
+        <SignOutButton className="mt-2 block text-left text-sm text-gray-400 transition hover:text-white" />
       </div>
     </aside>
   );

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FranchiseInquiryForm } from "@/components/marketing/FranchiseInquiryForm";
 
 export const metadata = {
   title: "Franchise Opportunities | Paco's Taco Shop",
@@ -132,22 +133,19 @@ export default function FranchisePage() {
       </section>
 
       <section id="inquiry" className="bg-taco-teal py-16 text-white">
-        <div className="mx-auto max-w-xl px-4 text-center">
-          <h2 className="mb-4 text-3xl font-black uppercase">Request Franchise Information</h2>
-          <p className="mb-8 text-teal-100">
+        <div className="mx-auto max-w-xl px-4">
+          <h2 className="mb-4 text-center text-3xl font-black uppercase">
+            Request Franchise Information
+          </h2>
+          <p className="mb-8 text-center text-teal-100">
             Take the first step toward ownership. Our franchise development team
             will reach out within 2 business days.
           </p>
-          <a
-            href="mailto:franchise@pacostacos.com?subject=Franchise%20Inquiry"
-            className="inline-block rounded-xl bg-white px-8 py-4 font-extrabold text-taco-teal shadow-lg transition hover:bg-amber-50"
-          >
-            Contact Franchise Development
-          </a>
-          <p className="mt-6 text-sm text-teal-200">
+          <FranchiseInquiryForm />
+          <p className="mt-6 text-center text-sm text-teal-200">
             Already a franchise owner?{" "}
-            <Link href="/backoffice" className="font-bold underline hover:text-white">
-              Access Back Office
+            <Link href="/auth/login" className="font-bold underline hover:text-white">
+              Sign in to Back Office
             </Link>
           </p>
         </div>
