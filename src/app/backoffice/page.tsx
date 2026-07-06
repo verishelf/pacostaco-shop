@@ -78,6 +78,7 @@ export default function BackofficeOverviewPage() {
         <h3 className="mb-4 font-bold text-taco-dark">Quick Actions</h3>
         <div className="grid gap-3 sm:flex sm:flex-wrap">
           {[
+            { href: "/backoffice/ordering", label: "Place Distributor Order" },
             { href: "/backoffice/menu", label: "Update Menu Pricing" },
             { href: "/backoffice/location", label: "Edit Store Hours" },
             { href: "/backoffice/documents", label: "Download Ops Manual" },
