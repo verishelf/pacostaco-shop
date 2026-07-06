@@ -20,3 +20,85 @@ body {
   background-color: var(--color-taco-gold);
   color: white;
 }
+
+.document-content h1 {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--color-taco-dark);
+  margin-bottom: 0.75rem;
+}
+
+.document-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-taco-dark);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.document-content h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-taco-teal);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.document-content p,
+.document-content li {
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.document-content p {
+  margin-bottom: 0.875rem;
+}
+
+.document-content ul,
+.document-content ol {
+  margin: 0.75rem 0 1rem 1.25rem;
+}
+
+.document-content li {
+  margin-bottom: 0.35rem;
+}
+
+.document-content hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.5rem 0;
+}
+
+.document-content strong {
+  font-weight: 700;
+  color: var(--color-taco-dark);
+}
+
+.document-content code {
+  background: #f3f4f6;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+
+.document-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.9rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.document-content th,
+.document-content td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.document-content th {
+  background: #f9fafb;
+  font-weight: 700;
+  color: var(--color-taco-dark);
+}

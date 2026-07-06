@@ -41,6 +41,8 @@ export interface FranchiseDocument {
   updatedAt: string;
 }
 
+export { franchiseDocuments as mockDocuments } from "@/backoffice/data/franchise-documents";
+
 export const mockOwner: FranchiseOwner = {
   id: "owner-1",
   name: "Maria Gonzalez",
@@ -90,33 +92,6 @@ export const mockRoyalties: RoyaltyReport[] = [
     royaltyDue: 5322,
     marketingDue: 1774,
     status: "paid",
-  },
-];
-
-export const mockDocuments: FranchiseDocument[] = [
-  {
-    id: "doc-1",
-    title: "Operations Manual v4.2",
-    category: "operations",
-    updatedAt: "2026-06-01",
-  },
-  {
-    id: "doc-2",
-    title: "Brand Style Guide",
-    category: "marketing",
-    updatedAt: "2026-05-15",
-  },
-  {
-    id: "doc-3",
-    title: "Franchise Agreement",
-    category: "legal",
-    updatedAt: "2024-03-10",
-  },
-  {
-    id: "doc-4",
-    title: "New Hire Training Checklist",
-    category: "training",
-    updatedAt: "2026-04-20",
   },
 ];
 
