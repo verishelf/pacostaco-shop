@@ -13,7 +13,7 @@ export default function BackofficeLayout({
 }) {
   return (
     <div className="flex min-h-screen bg-gray-50">
-      <div className="hidden lg:block">
+      <div className="hidden w-64 flex-shrink-0 lg:block">
         <BackofficeSidebar />
       </div>
       <div className="flex flex-1 flex-col overflow-hidden">

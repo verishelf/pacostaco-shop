@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { mockLocation, mockOwner } from "@/backoffice/data/mock-data";
-import { navItems } from "@/backoffice/components/BackofficeSidebar";
+import { navItems } from "@/backoffice/data/nav-items";
 
 interface BackofficeHeaderProps {
   title: string;
@@ -32,12 +32,12 @@ export function BackofficeHeader({ title, subtitle }: BackofficeHeaderProps) {
   return (
     <>
       <header className="border-b border-gray-200 bg-white px-4 py-3 sm:px-6 sm:py-4">
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex min-w-0 flex-1 items-start gap-3">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex min-w-0 flex-1 items-center gap-3">
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              className="mt-0.5 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-gray-200 text-taco-dark transition hover:bg-gray-50 lg:hidden"
+              className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white text-taco-dark shadow-sm transition hover:bg-gray-50 lg:hidden"
               aria-label="Open navigation menu"
               aria-expanded={menuOpen}
             >
@@ -65,33 +65,11 @@ export function BackofficeHeader({ title, subtitle }: BackofficeHeaderProps) {
               )}
             </div>
           </div>
-          <div className="hidden min-w-0 text-right sm:block">
+          <div className="hidden min-w-0 text-right sm:block lg:text-right">
             <p className="truncate text-sm font-bold text-taco-dark">{mockOwner.name}</p>
             <p className="truncate text-xs text-gray-500">{mockLocation.name}</p>
           </div>
         </div>
-        <nav
-          className="mt-3 flex gap-2 overflow-x-auto pb-1 lg:hidden"
-          aria-label="Back office sections"
-        >
-          {navItems.map((item) => {
-            const isActive = isNavItemActive(pathname, item.href);
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`whitespace-nowrap rounded-full px-3 py-1 text-xs font-semibold transition ${
-                  isActive
-                    ? "bg-taco-teal text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
       </header>
 
       {menuOpen && (
