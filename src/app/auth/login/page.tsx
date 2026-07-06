@@ -9,15 +9,15 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-taco-cream px-4">
       <div className="w-full max-w-md rounded-3xl border border-amber-100 bg-white p-8 shadow-xl">
         <h1 className="mb-2 text-center text-2xl font-black text-taco-red uppercase">
-          Franchise Portal
+          Franchise Back Office
         </h1>
         <p className="mb-8 text-center text-sm text-gray-600">
-          Sign in to manage your Paco&apos;s Taco Shop location
+          Sign in to manage your location, menu, and reports
         </p>
 
         <div className="mb-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-center text-sm text-gray-600">
-          Authentication will be powered by Supabase Auth in Phase 2. This page
-          is a placeholder for the login flow.
+          Full authentication via Supabase Auth is coming soon. Use demo access
+          to preview the franchise owner portal.
         </div>
 
         <form className="space-y-4">
@@ -31,9 +31,8 @@ export default function LoginPage() {
             <input
               id="email"
               type="email"
-              disabled
-              placeholder="you@example.com"
-              className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm disabled:bg-gray-50 disabled:text-gray-400"
+              placeholder="owner@example.com"
+              className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm"
             />
           </div>
           <div>
@@ -46,23 +45,26 @@ export default function LoginPage() {
             <input
               id="password"
               type="password"
-              disabled
               placeholder="••••••••"
-              className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm disabled:bg-gray-50 disabled:text-gray-400"
+              className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm"
             />
           </div>
-          <button
-            type="button"
-            disabled
-            className="w-full rounded-xl bg-taco-teal py-3 text-sm font-bold text-white disabled:opacity-50"
+          <Link
+            href="/backoffice"
+            className="block w-full rounded-xl bg-taco-teal py-3 text-center text-sm font-bold text-white hover:bg-teal-800"
           >
-            Sign In (Coming Soon)
-          </button>
+            Enter Back Office (Demo)
+          </Link>
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-500">
+          Interested in franchising?{" "}
+          <Link href="/franchise" className="font-bold text-taco-teal hover:underline">
+            Learn more
+          </Link>
+          {" · "}
           <Link href="/" className="text-taco-teal hover:underline">
-            ← Back to website
+            Back to site
           </Link>
         </p>
       </div>

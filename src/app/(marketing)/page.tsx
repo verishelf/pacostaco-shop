@@ -1,3 +1,5 @@
+import { CorporateStats } from "@/components/marketing/CorporateStats";
+import { FranchiseSection } from "@/components/marketing/FranchiseSection";
 import { Hero } from "@/components/marketing/Hero";
 import { LocationSection } from "@/components/marketing/LocationSection";
 import { MenuSection } from "@/components/marketing/MenuSection";
@@ -14,9 +16,11 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      <CorporateStats />
       <MenuSection items={menuItems} />
       <hr className="mx-auto max-w-6xl border-t-2 border-dashed border-amber-200" />
       <StorySection />
+      <FranchiseSection />
       <LocationSection location={location} />
     </>
   );
