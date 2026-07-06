@@ -13,7 +13,9 @@ export default function BackofficeLayout({
 }) {
   return (
     <div className="flex min-h-screen bg-gray-50">
-      <BackofficeSidebar />
+      <div className="hidden lg:block">
+        <BackofficeSidebar />
+      </div>
       <div className="flex flex-1 flex-col overflow-hidden">
         <BackofficeHeader title="Franchise Back Office" />
         <main className="flex-1 overflow-y-auto p-6">{children}</main>
